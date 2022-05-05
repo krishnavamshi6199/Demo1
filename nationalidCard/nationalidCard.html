@@ -1,0 +1,221 @@
+<template>
+    <div class="slds-align_absolute-center" >
+         <template if:false={showfirsttemplate}>
+    
+            <lightning-card title="National Id Card">
+        <div class="groove">Front Side of Your National Id.
+    <p>CF8300910LU69A</p>
+    <br> 
+
+
+
+
+
+
+
+
+
+
+  
+          <!--<div class="slds-p-top_xx-large">
+    <div class="slds-p-left_xx-large"><div class="slds-p-bottom_xx-large"><div class="slds-p-right_xx-large">--><div class="slds-brand-band slds-brand-band_medium slds-brand-band_group">
+        <div class="slds-form-element">
+            <span class="slds-form-element__label" id="file-selector-primary-label-104"></span>
+            <div class="slds-form-element__control">
+            <div class="slds-file-selector slds-file-selector_images">
+            <div class="slds-file-selector__dropzone">
+            <input type="file" class="slds-file-selector__input slds-assistive-text" accept="image/png" id="file-upload-input-105" aria-labelledby="file-selector-primary-label-104 file-selector-secondary-label106" />
+            <label class="slds-file-selector__body" for="file-upload-input-105" id="file-selector-secondary-label106">
+            <span class="slds-file-selector__button slds-button slds-button_neutral">
+            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+            </svg>Upload</span>
+            </label>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div> 
+            
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <br>
+    <div class="groove">Back Side of Your National Id.
+        <p>CF8300910LU69A</p>
+        <br>
+
+
+          <!--<div class="slds-p-top_xx-large">
+    <div class="slds-p-left_xx-large"><div class="slds-p-bottom_xx-large"><div class="slds-p-right_xx-large">--><div class="slds-brand-band slds-brand-band_medium slds-brand-band_group">
+    <div class="slds-form-element">
+        <span class="slds-form-element__label" id="file-selector-primary-label-101"></span>
+        <div class="slds-form-element__control">
+        <div class="slds-file-selector slds-file-selector_images">
+        <div class="slds-file-selector__dropzone">
+        <input type="file" class="slds-file-selector__input slds-assistive-text" accept="image/png" id="file-upload-input-103" aria-labelledby="file-selector-primary-label-101 file-selector-secondary-label102" />
+        <label class="slds-file-selector__body" for="file-upload-input-103" id="file-selector-secondary-label102">
+        <span class="slds-file-selector__button slds-button slds-button_neutral">
+        <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+        </svg>Upload</span>
+        </label>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div> 
+        
+
+
+
+
+
+
+    </div>
+    <br>
+    <button type="submit" class="slds-button slds-button_brand slds-button_stretch" onclick={imageshow}>Continue</button>
+    </lightning-card>
+    </template>
+    
+        
+        <!--Use template if:true to display/hide popup based on isModalOpen value-->
+    
+    
+    <template if:true={showimage}>
+        <lightning-card title="National Id Card">
+            <div class="slds-text-align_center"><b>Front Side of Your National Id.</b>
+            </div>
+            <div class="groove">
+               <lightning-tile>
+                <img src="https://washington.mofa.go.ug/sites/default/files/styles/large/public/National%20ID%20Specimen_0.jpg?itok=QsLrQKPT"/>
+        </lightning-tile>
+
+                
+                
+                
+            </div>
+            <br>
+                        <div class="slds-text-align_center"><b>Back Side of Your National Id.</b></div>
+
+            <div class="groove">
+             <lightning-tile>
+                <img src="https://washington.mofa.go.ug/sites/default/files/styles/large/public/National%20ID%20Specimen_0.jpg?itok=QsLrQKPT"/>
+        </lightning-tile>
+
+              
+              
+            </div>
+              <br>
+            <br>
+            <button type="submit" class="slds-button slds-button_brand slds-button_stretch"
+                onclick={openModal2}>Continue</button>
+                </lightning-card>
+                
+    
+                
+    </template>
+    <template if:true={verifying}>
+    
+    <section aria-modal="true" class="slds-modal slds-fade-in-open">
+    
+        <div class="slds-modal__container ">
+    
+    
+    
+            <div class="slds-modal__content">
+    
+                <header class="slds-modal__header">
+    
+                    <lightning-icon class="slds-modal__close" icon-name="utility:close" size="small" onclick={closeModal2}>
+                    </lightning-icon>
+    
+                </header>
+    
+    
+    
+    
+    
+    
+    
+                <lightning-card>
+    
+                    <div class="demo-only" style="height:6rem;position:relative">
+    
+                        <div class="slds-spinner_container">
+    
+                            <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+    
+                                <span class="slds-assistive-text">Loading</span>
+    
+                                <div class="slds-spinner__dot-a"></div>
+    
+                                <div class="slds-spinner__dot-b"></div>
+    
+                            </div>
+    
+                        </div>
+    
+                    </div>
+    
+                    <div class="slds-text-align_center">Fetching your info...</div>
+    
+                    <div class="field-title">
+                            <div class="slds-text-align_center">
+                                <div class="slds-text-heading_large"><b>Just a Moment!</b></div></div>
+                            </div>
+                        
+    
+                    <div class="slds-text-align_center">
+                        <h1>While we verify your information</h1>
+                    </div>
+    
+                    </br>
+    
+                    <br>
+    
+    
+    
+                </lightning-card>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+            </div>
+    
+        </div>
+    
+    </section>
+    
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    
+    
+    
+    
+    
+    </template>
+    </div>
+    </template>

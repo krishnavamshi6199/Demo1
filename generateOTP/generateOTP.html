@@ -1,0 +1,69 @@
+<template>
+    <div class="slds-grid slds-grid_align-center">
+        <div class="slds-col slds-size_4-of-12"></div>
+        <div class="slds-col slds-size_4-of-12">
+            <div class="slds-box slds-box_x-small" style="background-color: white; height:784px">
+                <div class="slds-text-body_regular slds-m-bottom_medium OTPHeader" style="margin-top:15px">SMS OTP Verification</div>
+                <div class="slds-text-title slds-m-bottom_xx-small">Please enter your Mobile Number</div>
+                <lightning-input type="tel" label="Phone" value={phoneNum} onchange={handleNumChange} variant='label-hidden' placeholder="Eg : 9876543210" pattern="[1-9][0-9]{9}">
+                </lightning-input>
+                <div class="slds-m-top_medium slds-align_absolute-center">
+                    <lightning-button label="Continue" variant="brand" onclick={handleSubmit}>
+                    </lightning-button>
+                </div>        
+            </div>
+        </div>
+        <div class="slds-col slds-size_4-of-12"></div>
+    </div>
+    <template if:true={showModal}>
+        <section aria-modal="true" class="slds-modal slds-fade-in-open">
+  
+
+            <div class="slds-modal__container slds-p-left_medium slds-p-right_medium">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={editPhone}>
+                    <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="inverse"
+                        size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <div class="slds-modal__content" style="border-radius: 4px;">
+                    
+                        
+                        
+                    <div class="slds-text-body_regular slds-m-top_medium slds-m-bottom_medium slds-m-left_small OTPHeader">OTP Verification</div>
+                    <div class="slds-text-body_regular slds-m-bottom_medium slds-m-left_small">We have sent a One Time Password to your Phone Number {maskPhone}</div>
+                    <div class="slds-grid slds-grid_align-space">
+                        <div class="slds-col slds-m-left_medium">
+                            <lightning-input data-id='firstDigit' class='optInput' value={firstDigit} type="password" variant='label-hidden' max-length=1 onchange={handleOTPInput}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-m-left_medium">
+                            <lightning-input data-id='secondDigit' class='optInput' value={secondDigit} type="password" variant='label-hidden' max-length=1 onchange={handleOTPInput}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-m-left_medium">
+                            <lightning-input data-id='thirdDigit' class='optInput' value={thirdDigit} type="password" variant='label-hidden' max-length=1 onchange={handleOTPInput}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-m-left_medium">
+                            <lightning-input data-id='fourthDigit' class='optInput' value={fourthDigit} type="password" variant='label-hidden' max-length=1 onchange={handleOTPInput}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-m-left_medium">
+                            <lightning-input data-id='fifthDigit' class='optInput' value={fifthDigit} type="password" variant='label-hidden' max-length=1 onchange={handleOTPInput}></lightning-input>
+                        </div>
+                        <div class="slds-col slds-m-left_medium slds-m-right_medium">
+                            <lightning-input data-id='sixthDigit' class='optInput' value={sixthDigit} type="password" variant='label-hidden' max-length=1 onchange={handleOTPInput}></lightning-input>
+                        </div>
+                    </div>
+                    <div style="display: flex;" class="slds-m-left_medium slds-m-top_medium">
+                        <div class="slds-text-body_regular">Didn't recieve code?</div>
+                        <a href="javascript:void(0);" style="font-weight: 600;">Resend</a>
+                    </div>
+                    <div class="slds-m-top_medium slds-align_absolute-center">
+                        <lightning-button variant="brand-outline" label="EDIT MOBILE NUMBER" onclick={editPhone} class="slds-p-around_x-small slds-m-right_xx-small"></lightning-button>
+                        <lightning-button variant="brand" label="VERIFY" onclick={verifyOTP} class="slds-p-around_x-small"></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

@@ -1,0 +1,11 @@
+.optInput {
+    width : 35px
+}
+
+.OTPHeader {
+    font-weight: 600;
+    font-size: 18px;
+    border-bottom: 1px solid lightgray;
+    margin-right: 12px;
+    padding-bottom: 6px
+}

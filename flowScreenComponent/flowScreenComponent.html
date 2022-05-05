@@ -1,0 +1,179 @@
+<template>
+
+    <template if:true={screen2header}>
+        <c-great-choice1 selected-currency={selectedCurrency}></c-great-choice1>
+    </template>
+    <template if:true={screen3header}>
+        <c-nationality-id1></c-nationality-id1>
+    </template>
+    <template if:true={screen4header}>
+        <c-personal-details1></c-personal-details1>
+    </template>
+
+    <template if:true={showTopStaticScreen}>
+        <c-top-static-screen-component screen-component-name={screenFlowObject.TopStaticScreenName} screen-component-height={screenFlowObject.TopStaticScreenHeight}>
+        </c-top-static-screen-component>
+    </template>
+
+    <template if:true={screen1popup}>
+        <c-popupscreen_1 onnextverify={handleButtonClick}></c-popupscreen_1>
+    </template>
+    <template if:true={screen2popup}>
+        <c-popupscreen_2 showconsent={showconsenttrue} onagreednext={handleButtonClick}></c-popupscreen_2>
+        <!-- <c-screen_2_-o-t-p_popup></c-screen_2_-o-t-p_popup> -->
+    </template>
+    <template if:true={screen3popup}>
+        <c-screen_2_-o-t-p_popup display-modal=true onverified={handleButtonClick}></c-screen_2_-o-t-p_popup>
+    </template>
+
+    <template if:true={fieldListSize}>
+        <template for:each={fields} for:item="eachField">
+            <template if:true={eachField.isTextInput}>
+                <template if:true={eachField.isRendered}>
+                    <lightning-input key={eachField.UniqueKey} id={eachField.label} label={eachField.label} placeholder={eachField.placeholder} value={eachField.value} required={eachField.required} type={eachField.type} onchange={handleTextInputChange}>
+                    </lightning-input>
+                </template>
+            </template>
+            <template if:true={eachField.isComboBoxInput}>
+                <template if:true={eachField.isRendered}>
+                    
+                    <lightning-combobox key={eachField.UniqueKey} data-key={eachField.UniqueKey} data-label={eachField.label} label={eachField.label} placeholder={eachField.placeholder} value={eachField.value} required={eachField.required} type={eachField.type}  options={eachField.options} 
+                                        onchange={handleComboxInputChange}>
+                    </lightning-combobox>
+                    <div key={eachField.UniqueKey} data-id={eachField.UniqueKey} class="slds-hidden"> 
+                        <template for:each={comboChildFieldList} for:item="eachChildField">
+                            <template if:true={eachChildField.isTextInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    <lightning-input key={eachChildField.UniqueKey} id={eachChildField.label} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} type={eachChildField.type} onchange={handleTextInputChange}>
+                                    </lightning-input>
+                                </template>
+                            </template>
+                            <template if:true={eachChildField.isComboBoxInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    
+                                    <lightning-combobox key={eachChildField.UniqueKey} data-key={eachChildField.UniqueKey} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} type={eachChildField.type}  options={eachChildField.options} 
+                                                        onchange={handleComboxInputChange}>
+                                    </lightning-combobox>
+                                </template>
+                            </template>
+                            <template if:true={eachChildField.isRadioGroupInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    <lightning-radio-group key={eachChildField.UniqueKey} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} 
+                                            options={eachChildField.options}  onchange={handleRadioGroupInputChange} type="radio">
+                                    </lightning-radio-group>
+                                </template>
+                            </template>
+                            <template if:true={eachChildField.isRadioButtonGroupInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    <lightning-radio-group key={eachChildField.UniqueKey} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} 
+                                            options={eachChildField.options}  onchange={handleRadioGroupInputChange} type="button">
+                                    </lightning-radio-group>
+                                </template>
+                            </template>
+                        </template>
+                    </div>
+                </template>
+            </template>
+            <template if:true={eachField.isRadioGroupInput}>
+                <template if:true={eachField.isRendered}>
+                    <lightning-radio-group key={eachField.UniqueKey} data-key={eachField.UniqueKey} data-label={eachField.label} label={eachField.label} placeholder={eachField.placeholder} value={eachField.value} required={eachField.required} 
+                            options={eachField.options}  onchange={handleRadioGroupInputChange} type="radio">
+                    </lightning-radio-group>
+                    <div key={eachField.UniqueKey} data-id={eachField.UniqueKey} class="slds-hidden"> 
+                        <template for:each={radioChildFieldList} for:item="eachChildField">
+                            <template if:true={eachChildField.isTextInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    <lightning-input key={eachChildField.UniqueKey} id={eachChildField.label} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} type={eachChildField.type} onchange={handleTextInputChange}>
+                                    </lightning-input>
+                                </template>
+                            </template>
+                            <template if:true={eachChildField.isComboBoxInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    
+                                    <lightning-combobox key={eachChildField.UniqueKey} data-key={eachChildField.UniqueKey} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} type={eachChildField.type}  options={eachChildField.options} 
+                                                        onchange={handleComboxInputChange}>
+                                    </lightning-combobox>
+                                </template>
+                            </template>
+                            <template if:true={eachChildField.isRadioGroupInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    <lightning-radio-group key={eachChildField.UniqueKey} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} 
+                                            options={eachChildField.options}  onchange={handleRadioGroupInputChange} type="radio">
+                                    </lightning-radio-group>
+                                </template>
+                            </template>
+                            <template if:true={eachChildField.isRadioButtonGroupInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    <lightning-radio-group key={eachChildField.UniqueKey} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} 
+                                            options={eachChildField.options}  onchange={handleRadioGroupInputChange} type="button">
+                                    </lightning-radio-group>
+                                </template>
+                            </template>
+                        </template>
+                    </div>
+                </template>
+            </template>
+            <template if:true={eachField.isRadioButtonGroupInput}>
+                <template if:true={eachField.isRendered}>
+                    <lightning-radio-group key={eachField.UniqueKey} label={eachField.label} data-key={eachField.UniqueKey} data-label={eachField.label} placeholder={eachField.placeholder} value={eachField.value} required={eachField.required} 
+                            options={eachField.options}  onchange={handleRadioGroupInputChange} type="button">
+                    </lightning-radio-group>
+                    <div key={eachField.UniqueKey} data-id={eachField.UniqueKey} class="slds-hidden"> 
+                        <template for:each={radioChildFieldList} for:item="eachChildField">
+                            <template if:true={eachChildField.isTextInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    <lightning-input key={eachChildField.UniqueKey} id={eachChildField.label} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} type={eachChildField.type} onchange={handleTextInputChange}>
+                                    </lightning-input>
+                                </template>
+                            </template>
+                            <template if:true={eachChildField.isComboBoxInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    
+                                    <lightning-combobox key={eachChildField.UniqueKey} data-key={eachChildField.UniqueKey} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} type={eachChildField.type}  options={eachChildField.options} 
+                                                        onchange={handleComboxInputChange}>
+                                    </lightning-combobox>
+                                </template>
+                            </template>
+                            <template if:true={eachChildField.isRadioGroupInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    <lightning-radio-group key={eachChildField.UniqueKey} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} 
+                                            options={eachChildField.options}  onchange={handleRadioGroupInputChange} type="radio">
+                                    </lightning-radio-group>
+                                </template>
+                            </template>
+                            <template if:true={eachChildField.isRadioButtonGroupInput}>
+                                <template if:true={eachChildField.isRendered}>
+                                    <lightning-radio-group key={eachChildField.UniqueKey} label={eachChildField.label} placeholder={eachChildField.placeholder} value={eachChildField.value} required={eachChildField.required} 
+                                            options={eachChildField.options}  onchange={handleRadioGroupInputChange} type="button">
+                                    </lightning-radio-group>
+                                </template>
+                            </template>
+                        </template>
+                    </div>
+                </template>
+            </template>
+        </template>
+    </template>
+ 
+    <template if:true={buttonListSize}>
+        <div class='slds-align_absolute-center' style="display: flex;">
+            <template for:each={buttons} for:item='eachButton'>
+                <lightning-button class = "slds-m-around_medium" key={eachButton.UniqueKey} label={eachButton.label} variant={eachButton.variant} type="submit" onclick={handleButtonClick}>
+                </lightning-button>
+            </template>
+        </div>
+    </template>
+
+    <template if:true={showScreenModal}>
+        <c-modal-screen-component screen-component-name={screenFlowObject.TopStaticScreenName}>
+        </c-modal-screen-component>
+    </template>
+
+    <template if:true={showBottomStaticScreen}>
+        <c-bottom-static-screen-component screen-component-name={screenFlowObject.TopStaticScreenName} screen-component-height={screenFlowObject.TopStaticScreenHeight}>
+        </c-bottom-static-screen-component>
+    </template>
+    <template if:true={showCommonFooter}>
+        <c-common-footer></c-common-footer>
+    </template>
+</template>

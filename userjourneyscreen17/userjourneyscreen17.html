@@ -1,0 +1,66 @@
+<template>
+
+
+
+    <!--<div class="slds-p-top_xx-large">
+    <div class="slds-p-left_xx-large"><div class="slds-p-bottom_xx-large"><div class="slds-p-right_xx-large">-->
+    
+    
+    <div class="slds-form-element">
+    <span class="slds-form-element__label" id="file-selector-primary-label-101"></span>
+    <div class="slds-form-element__control">
+    <div class="slds-file-selector slds-file-selector_images">
+    <div class="slds-file-selector__dropzone">
+    <input type="file" class="slds-file-selector__input slds-assistive-text" accept="image/png" id="file-upload-input-103"
+     aria-labelledby="file-selector-primary-label-101 file-selector-secondary-label102" onchange={pop} />
+    <label class="slds-file-selector__body" for="file-upload-input-103" id="file-selector-secondary-label102">
+    <span class="slds-file-selector__button slds-button slds-button_neutral">
+    <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+    </svg>Tap to add signature</span>
+    </label>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <!--</div></div></div></div>-->
+    <template if:true={mod}>
+        
+    
+        <section aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container ">
+                <div class="slds-modal__content">
+                    <header class="slds-modal__header">
+                    <lightning-icon class="slds-modal__close" icon-name="utility:close" size="small" onclick={Openmodal}></lightning-icon>
+                </header>
+
+        <lightning-card>
+            <div class="slds-align_absolute-center">
+                <div class="border">
+                    <div class="slds-p-top_xx-large">
+                <lightning-tile><div class="slds-text-align_center">
+                    
+                    <img src="https://as2.ftcdn.net/v2/jpg/00/00/42/95/1000_F_429547_YJTlwk2Ld5kYDAbtCUwFgzmatgUHEg.jpg"/>
+                
+                
+                
+                
+                </div></lightning-tile></div></div></div></center>
+                <br><br>
+
+                <footer class="slds-modal__footer">
+                    <button type="submit" 
+                    class="slds-button slds-button_brand slds-button_stretch" onclick={handleNavigation}>Continue</button> </footer>
+        </lightning-card>
+
+    </div>            
+</div>
+</section>
+<div class="slds-backdrop slds-backdrop_open"></div>
+
+
+</template>
+
+    
+</template>

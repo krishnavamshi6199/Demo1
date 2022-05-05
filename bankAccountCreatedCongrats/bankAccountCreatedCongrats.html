@@ -1,0 +1,50 @@
+<template>  
+
+    <div class="slds-align_absolute-center" >       
+      <p id="action" class="slds-box slds-text-heading_small">
+
+        <lightning-icon icon-name="action:approval" alternative-text="Approved" title="Approved"></lightning-icon>
+       
+       
+    </p>            
+    </div><br>
+        <div class="slds-align_absolute-center" >
+   <div class="slds-text-heading_large">
+<div class="slds-truncate" title="SubField2-1"><b>
+ Congrats!</b></div></div>
+
+            </div>
+        <div class="slds-align_absolute-center" >
+
+            <div class="slds-text-heading_small">
+                Your Stanbic Bank Account is Ready!
+            </div></div>
+            </br>
+            <div class="slds-border_bottom">
+            <div class="slds-p-around_medium ">
+             <lightning-input type="text" label="Account Type" value="Savings Account                                                                                                                                                                                                                                                               ~UGX" readonly></lightning-input>
+         </div>  
+</div>
+      <div class="slds-border_bottom">
+            <div class="slds-p-around_medium ">
+             <lightning-input type="text" label="Account No" value="2902 6357 7390 1298" readonly></lightning-input>
+         </div>  
+</div>
+</br>
+    <div class="slds-align_absolute-center" >       
+
+<div class="slds-box slds-theme_alt-inverse">
+    <div class="slds-align_absolute-center" >       
+<p>!!! We have sent your account details on your email</p></div>
+      <div class="slds-align_absolute-center" >       
+<p>  Please follow the mentioned steps to login and  start using your account </p>
+      </div>
+
+</div>
+</div>
+</br>
+ <button type="submit" 
+           class="slds-button slds-button_brand slds-button_stretch"  onclick={handleNavigation}>
+                Proceed to Login</button>
+
+</template>

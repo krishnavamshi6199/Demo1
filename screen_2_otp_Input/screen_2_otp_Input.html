@@ -1,0 +1,30 @@
+<template>
+  <lightning-card title="OTP verification">
+    <div class="slds-p-around_medium">
+
+    <lightning-input type="text" label="Your Phone Number" 
+    name="phone2" placeholder="+256 123 456 789"  maxlength="12" 
+     onchange={PhoneNumber}></lightning-input>
+     <br>
+     <lightning-input type="text" label="Your Email" 
+    name="Email" placeholder="v@stanbic.com" 
+     onchange={Email}></lightning-input><br>
+
+     <button type="submit" 
+     class="slds-button slds-button_brand slds-button_stretch"
+       onclick={openModal}>
+          Continue</button>
+          <template if:true={verifying}>
+<p> verified</p>
+          </template>
+          <template if:true={afterClick}>
+           To verify  {OtpFromApex}<br>
+           from c {OtprecievedFromChild}<br>
+            <c-screen_2_-o-t-p_popup display-modal=true otp-from-api={OtpFromApex} show-error={showError} ongetphonevalue={OtpFromChild}
+            ></c-screen_2_-o-t-p_popup>
+
+
+          </template>    </div>
+
+      </lightning-card>
+</template>

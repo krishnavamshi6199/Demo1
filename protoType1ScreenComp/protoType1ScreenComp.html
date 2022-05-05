@@ -1,0 +1,26 @@
+<template>
+
+    <lightning-combobox
+            name="salary"
+            label="What is Your Average Monthly?"
+            value={SalaryValue}
+            placeholder="Select Salary Range"
+            options={options}
+            onchange={handleChange} ></lightning-combobox>
+        
+            <lightning-combobox
+            name="employment"
+            label="Your Employment Type"
+            value={ValueOfSelectedEmployement}
+            options={optionsForEmploymentType}
+            onchange={handleChangeForEmployementType} ></lightning-combobox>
+
+            <lightning-combobox
+            name="AccountType"
+            label="Any preferred type of account ?"
+            value={ValueOfSelectedTypeOfBankAccount}
+            options={OptionsForBankAccountType}
+            onchange={handleChangeForBankAccountTypeSelection}
+            ></lightning-combobox>
+
+</template>

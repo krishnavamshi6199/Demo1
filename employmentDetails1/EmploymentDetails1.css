@@ -1,0 +1,11 @@
+.container{
+    background-color: #0033aa;
+    padding:10px;
+    width:30%;
+}
+    .footer{
+        background-color:#0033aa;
+      margin:5px;
+        width:30%;
+        padding:10px
+      }

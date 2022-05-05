@@ -1,0 +1,145 @@
+<template>
+
+
+
+    <!--<div class="slds-p-top_xx-large">
+    <div class="slds-p-left_xx-large"><div class="slds-p-bottom_xx-large"><div class="slds-p-right_xx-large">-->
+    
+    
+    <div class="slds-form-element">
+    <span class="slds-form-element__label" id="file-selector-primary-label-101"></span>
+    <div class="slds-form-element__control">
+    <div class="slds-file-selector slds-file-selector_images">
+    <div class="slds-file-selector__dropzone">
+    <input type="file" class="slds-file-selector__input slds-assistive-text" accept="image/png" id="file-upload-input-103"
+     aria-labelledby="file-selector-primary-label-101 file-selector-secondary-label102" onchange={pop} />
+    <label class="slds-file-selector__body" for="file-upload-input-103" id="file-selector-secondary-label102">
+    <span class="slds-file-selector__button slds-button slds-button_neutral">
+    <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload"></use>
+    </svg>Click to verify with selfie</span>
+    </label>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <!--</div></div></div></div>-->
+    <template if:true={mod}>
+        
+    
+        <section aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container ">
+                <div class="slds-modal__content">
+                    <header class="slds-modal__header">
+                    <lightning-icon class="slds-modal__close" icon-name="utility:close" size="small" onclick={Openmodal}></lightning-icon>
+                </header>
+                   
+                
+                
+      <lightning-card >
+               
+                <div class="slds-text-align_center"><b>Hi Martin please follow the below guidlines for a successful Verification</b></div>
+     
+             <div class="slds-text-align_center"><h1>1.Please make sure your face is well lit up</h1></div><br>
+                      <div class="slds-text-align_center"><h1>2.Do not ware hat or any accessories</h1></div><br>
+             <div class="slds-text-align_center"><h1>3.If you are wearing glasses,make sure your eyes are visible</h1></div>
+    
+    </br>
+    <br>
+    
+      <footer class="slds-modal__footer">
+                   <button type="submit" 
+                   class="slds-button slds-button_brand slds-button_stretch" onclick={closeModal}>Okay..Got it!</button> </footer>
+            
+            </lightning-card>
+                
+                
+                
+                    
+                </div>            
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        
+        
+    </template>
+    <template if:true={verifying}>
+        
+    
+        <section aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container ">
+              
+                <div class="slds-modal__content">
+                    <header class="slds-modal__header">
+                    <lightning-icon class="slds-modal__close" icon-name="utility:close" size="small" onclick={closeModal2}></lightning-icon>
+                </header>
+                			
+  <lightning-card >
+            <div class="demo-only" style="height:6rem;position:relative">
+  <div class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+</div>
+<div class="slds-align_absolute-center">
+
+<lightning-tile>
+    
+         <img src="https://media.istockphoto.com/photos/close-up-young-smiling-man-in-casual-clothes-posing-isolated-on-blue-picture-id1270987867?k=20&m=1270987867&s=612x612&w=0&h=lX9Y1qUxtWOa0W0Mc-SvNta00UH0-sgJQItkxfwE4uU="/>
+
+
+
+</lightning-tile>
+</div>
+<br><br>
+ <div class="field-title"><b><div class="slds-text-align_center">Nice Click !</div></center></b></div>
+         <div class="slds-text-align_center"><h1>hold on while we verify your photo</h1></div>
+         <div class="slds-text-align_center">Verifying...</div><br><br>
+         
+</br>
+<br>
+
+        </lightning-card>
+			
+			
+			
+                
+            </div>            
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    
+    
+</template>
+    <template if:true={verifying2}>
+    <section aria-modal="true" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container ">
+          
+            <div class="slds-modal__content">
+                <header class="slds-modal__header">
+                    <lightning-icon class="slds-modal__close" icon-name="utility:close" size="small" onclick={closeModal2}></lightning-icon>
+                </header>
+                <lightning-card >
+            <div class="demo-only" style="height:6rem;position:relative">
+  <div class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+</div>
+<div class="field-title"><b><div class="slds-text-align_center">Success</div></center></b></div>
+<br><br>
+</lightning-card>
+</div>            
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    
+    </template>

@@ -1,0 +1,11 @@
+.stretchButton {display:block; width: 100%;}
+.messageClass{
+    border-top: 3px solid #17a7f0;
+    border-left: 3px solid #17a7f0;
+    border-right: 3px solid #17a7f0;
+    border-bottom: 3px solid #17a7f0;
+    width:100%;
+}
+THIS .field-title{
+    font-weight: bold;
+}

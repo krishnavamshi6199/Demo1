@@ -1,0 +1,197 @@
+<template>
+    <lightning-combobox
+            name="nationality"
+            label="Your Nationality"
+            value={Nationality}
+            placeholder="Select"
+            options={options}
+            onchange={handleChange} ></lightning-combobox>
+</br>
+
+
+              <!--  <div class="slds-p-around_medium lgc-bg">-->
+                <lightning-input type="text" label="Your NIN" placeholder="Eg: 1234567891234" maxlength="13"
+                onchange={NinValue}
+                ></lightning-input></br>
+               
+           <!-- </div>-->
+           <!-- <div class="slds-p-around_medium lgc-bg">
+                <lightning-input type="number" label="Your Phone Number" placeholder="+256 123 456 789" maxlength="12"
+                onchange={PhoneNumber}></lightning-input>-->
+           <!-- </div>--></br>
+           <lightning-input type="tel" label="Your Phone Number" name="phone2" placeholder="+256 123 456 789"  maxlength="12"  onchange={PhoneNumber}></lightning-input>
+
+
+           <div class="slds-p-right_small">
+                <div class="slds-p-top_small">
+                   
+                                    <lightning-input
+        type="checkbox"
+        label="I have read and accept the terms and conditions"
+        onchange={showDivHandler} >
+    </lightning-input>   
+            </div></div>
+          </br>
+
+    <template if:true={displayDiv}>
+          <button type="submit" 
+          class="slds-button slds-button_brand slds-button_stretch"  onclick={openModal}>
+               Continue</button>
+    </template>
+    <template if:false={displayDiv}>
+        
+          <button type="submit" 
+          class="slds-button slds-button_brand slds-button_stretch" disabled >
+               Continue</button> </template>
+               <!-- sub template i.e popup after clicking continue (for OTP)-->
+<!-- sub template i.e popup after clicking continue (for OTP)-->
+
+<!-- sub template i.e popup after clicking continue (for OTP)-->
+
+
+<!-- This Modal will only be visible if showModal is set to true -->
+<template if:true={showModal}>
+    <section aria-modal="true" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container ">
+            <header class="slds-modal__header">
+                <h2 class="slds-text-heading_small">OTP Verification</h2>
+                <lightning-icon class="slds-modal__close" icon-name="utility:close" size="small" onclick={onlyCloseModal}></lightning-icon>
+            </header>
+            <div class="slds-modal__content">
+                <div class="slds-p-around_small">
+                        <p><b> We have sent an One Time Password to your Phone Number {Phone}</b></p>
+<fieldset class="slds-form-element slds-form-element_compound">
+<legend class="slds-form-element__legend slds-form-element__label">
+</legend>
+<div class="slds-form-element__control">
+    <div class="slds-form-element__row">
+        <div class="messageClass"><div class="slds-size_1-of-12">
+            <lightning-input type="password" label="" name="input7" pattern={pattern} ></lightning-input>
+
+        </div></div>
+        &nbsp;&nbsp;
+        <div class="messageClass">  <div class="slds-size_1-of-12">
+            <lightning-input type="password" label="" name="input7" pattern={pattern} ></lightning-input>
+        </div></div> &nbsp;&nbsp;
+        <div class="messageClass">    <div class="slds-size_1-of-12">
+            <lightning-input type="password" label="" name="input7" pattern={pattern} ></lightning-input>
+        </div></div> &nbsp;&nbsp;
+        <div class="messageClass"> <div class="slds-size_1-of-12">
+            <lightning-input type="password" label="" name="input7" pattern={pattern} ></lightning-input>
+        </div></div> &nbsp;&nbsp;
+        <div class="messageClass">  <div class="slds-size_1-of-12">
+            <lightning-input type="password" label="" name="input7" pattern={pattern} ></lightning-input>
+       </div></div> &nbsp;&nbsp;
+       <div class="messageClass"> <div class="slds-size_1-of-12">
+        <lightning-input type="password" label="" name="input7" pattern={pattern} ></lightning-input>
+
+      <!--<lightning-input label=" " type="number" maxlength="1"></lightning-input>-->
+      </div></div>
+
+    </div>
+</div>
+</br>
+<b>Didn't recieve any  code? <lightning-formatted-url value="www.salesforce.com" label="Resend" target="_blank"></lightning-formatted-url></b>
+
+</br>
+
+</fieldset>
+                </div>
+            </div>
+
+      
+            <footer class="slds-modal__footer">
+               <button type="submit" 
+               class="slds-button slds-button_brand slds-button_stretch" onclick={closeModal}>Verify</button> </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    
+    
+</template>
+
+
+<template if:true={verifying}>
+    <section aria-modal="true" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container ">
+          
+            <div class="slds-modal__content">
+                <header class="slds-modal__header">
+                    <lightning-icon class="slds-modal__close" icon-name="utility:close" size="small" onclick={closeModal2}></lightning-icon>
+                </header>
+                
+			
+			
+  <lightning-card >
+            <div class="demo-only" style="height:6rem;position:relative">
+  <div class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+</div>
+            <div class="slds-text-align_center">Verifying...</div>
+ <div class="field-title"><b><div class="slds-text-align_center"><div class="slds-text-heading_large">Just a Moment!</div></div></center></b></div>
+         <div class="slds-text-align_center"><h1>Verifying your information</h1></div>
+</br>
+<br>
+
+        </lightning-card>
+			
+			
+			
+                
+            </div>            
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    
+    
+</template>
+<!-- second verifying modal popup -->
+<template if:true={verifying2}>
+    <section aria-modal="true" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container ">
+          
+            <div class="slds-modal__content">
+                <header class="slds-modal__header">
+                    <lightning-icon class="slds-modal__close" icon-name="utility:close" size="small" onclick={closeModal2}></lightning-icon>
+                </header>
+                
+			
+			
+  <lightning-card >
+            <div class="demo-only" style="height:6rem;position:relative">
+  <div class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+</div>
+            <div class="slds-text-align_center">Fetching your info...</div>
+ <div class="field-title"><b><div class="slds-text-align_center"><div class="slds-text-heading_large">Just a Moment!</div></div></center></b></div>
+         <div class="slds-text-align_center"><h1>Verifying your information</h1></div>
+</br>
+<br>
+
+        </lightning-card>
+			
+			
+			
+                
+            </div>            
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+    
+    
+</template>
+
+
+
+
+</template>

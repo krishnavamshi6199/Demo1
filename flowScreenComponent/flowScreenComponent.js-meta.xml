@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <isExposed>true</isExposed>
+     <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen" category="custom">
+            <property name="screenNumber" type="String" label="Screen Number"/>
+            <property name="screenFlowObject" type="apex://ScreeMainWrapper" label="Screen Object"/>
+            <property name="fields" type="apex://ScreenFieldWrapper" label="Field Object"/>
+            <property name="buttons" type="apex://ScreenButtonWrapper" label="Button Object"/>
+            <property name="outputTest" type="String" role="outputOnly"/>
+            <property name="previousJSON" label="Sent JSON" type="String" role="outputOnly"/>
+            <property name="previousSelectedCurrency" label="Sent Currency" type="String" role="outputOnly"/>
+            <property name="recievedJSON" label="Recieved JSON" type="String" role="inputOnly"/>
+            <property name="selectedCurrency" label="Selected Currency" type="String" role="inputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

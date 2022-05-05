@@ -1,0 +1,56 @@
+<template>
+    <div class="slds-p-left_x-small">
+    <div class="slds-text-body_regular">Selected Account</div></div>
+         <div class="messageClass">    
+ 
+         <!-- Default/basic -->
+         <div class="slds-p-around_medium ">
+ 
+ <div class="slds-text-heading_small">Savings Account</div>
+ <div class="slds-text-align_right">
+ <div class="slds-text-heading_small">~UGX</div></div>
+ 
+ 
+         </div>
+         </div>  
+ <div class="slds-p-around_medium ">
+             <lightning-input type="text" label="Your Full Name" value="Stark Industries" readonly></lightning-input>
+         </div>          
+           <div class="slds-p-around_medium ">
+             <lightning-input type="text" label="Your NIN" value="1423262322932" readonly ></lightning-input>
+         </div>          
+           <div class="slds-p-around_medium ">
+             <lightning-input type="text" label="Your Phone Number" value="+256123223333" readonly></lightning-input>
+         </div>          
+          <div class="slds-p-around_medium ">
+             <lightning-input type="text" label="Your Email Id" value="martin.sebta@gmail.com" readonly></lightning-input>
+         </div>          
+ 
+            <div class="slds-p-right_small">
+                 <div class="slds-p-top_small">
+                    
+                                     <lightning-input
+         type="checkbox"
+         label="I have read and accept the terms and conditions"
+         onchange={showDivHandler} >
+     </lightning-input>   
+             </div></div>
+           </br>
+ 
+          <template if:true={displayDiv}>
+           <button type="submit" 
+           class="slds-button slds-button_brand slds-button_stretch"  onclick={handleNavigation}>
+                Submit</button>
+     </template>
+     <template if:false={displayDiv}>
+         
+           <button type="submit" 
+           class="slds-button slds-button_brand slds-button_stretch" disabled >
+                Submit</button> </template>
+         
+           
+           
+           
+           
+           
+           </template>

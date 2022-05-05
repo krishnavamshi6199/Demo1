@@ -1,0 +1,11 @@
+.container{
+    background-color: #0033aa;
+    padding:10px;
+    width:100%;
+    color:white
+}
+.popup{
+    background-color: #ff781e;
+    padding:10px;
+    width:30%;
+}

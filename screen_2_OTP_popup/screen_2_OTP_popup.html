@@ -1,0 +1,67 @@
+<template>
+    <!--  for full strech button on screen <button type="submit" 
+       class="slds-button slds-button_brand slds-button_stretch"  onclick={openModal}>-->
+ 
+
+<template if:true={displayModal}>
+
+
+   
+ <section aria-modal="true" class="slds-modal slds-fade-in-open">
+     <div class="slds-modal__container ">
+         <header class="slds-modal__header">
+             <b><h2 class="slds-text-heading_small">Verify Email Id and Phone No   {OtpFromApex}</h2></b>
+             <lightning-icon class="slds-modal__close" icon-name="utility:close" size="small" onclick={onlyCloseModal}></lightning-icon>
+         </header>
+         <template if:true={showError}>
+             
+             <div class="slds-box slds-theme_default">
+                 <div class="slds-text-color_destructive"><div class="slds-align_absolute-center">!!!Wrong OTP Entered</div>
+
+</div></div>
+
+
+             
+             </template>
+         <div class="slds-modal__content">
+             <div class="slds-p-around_small">
+                     <p><b> We have sent an One Time Password to your Phone Number {Phone}</b></p>
+                     <br>
+<lightning-input type="text" name='phone' label="Enter OTP recieved in your Phone no"  maxlength="6"
+             onchange={phoneAndMailOtpVerification}
+             ></lightning-input></br>
+             {OtpRecievedOnPhone}
+             <br>
+             <lightning-input type="text" name='email' label="Enter OTP recieved in your Mail"  maxlength="6"
+             onchange={phoneAndMailOtpVerification}
+             ></lightning-input></br>
+             {OtpRecievedOnEmail}
+
+             <b>Didn't recieve any  code? <lightning-formatted-url value="www.salesforce.com" label="Resend" target="_blank"></lightning-formatted-url></b>
+
+             </div>
+            
+         </div>
+
+   
+         <footer class="slds-modal__footer">
+            <button type="submit" 
+            class="slds-button slds-button_brand slds-button_stretch" onclick={verifyAction}>Verify</button> </footer>
+     </div>
+ </section>
+ <div class="slds-backdrop slds-backdrop_open"></div>
+
+ 
+ 
+</template>
+
+
+              
+
+
+
+
+
+
+       
+ </template>
