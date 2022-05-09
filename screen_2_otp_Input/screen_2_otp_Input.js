@@ -34,21 +34,30 @@ getOtp({p:this.Phone,emailId:this.email}).then(response =>{
     OtprecievedFromChild1;
     verifying=false;
     showError=false;
+ EmailOtp;
     OtpFromChild(event)
     {
         
         this.OtprecievedFromChild=event.detail;
-        if(this.OtprecievedFromChild==this.OtpFromApex)
+        if(this.OtprecievedFromChild==this.OtpFromApex||this.EmailOtp==this.OtpFromApex)
         {
             this.afterClick=false;
             this.verifying=true;
         }
-        else if(this.OtprecievedFromChild!=this.OtpFromApex)
+        else if(this.OtprecievedFromChild!=this.OtpFromApex||this.OtpFromApex!=this.EmailOtp)
         {
             this.showError=true;
 
         }
     }
+    EmailOtpFromChild(event)
+
+    {
+        this.EmailOtp=event.detail;
+        
+    }
+
+    
 
     
 }

@@ -49,6 +49,13 @@ export default class Screen_2_OTP_popup extends LightningElement {
         }
         );
     this.dispatchEvent(sendToParent);
+
+    const sendToParentEmail = new CustomEvent("getEmailvalue",
+    {
+        detail:this.OtpRecievedOnEmail
+    }
+    );
+this.dispatchEvent(sendToParent);
     
 
      
