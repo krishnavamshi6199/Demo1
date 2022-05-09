@@ -44,7 +44,7 @@ getOtp({p:this.Phone,emailId:this.email}).then(response =>{
             this.afterClick=false;
             this.verifying=true;
         }
-        else if(this.OtprecievedFromChild!=this.OtpFromApex||this.OtpFromApex!=this.EmailOtp)
+        else if(this.OtprecievedFromChild!=this.OtpFromApex&&this.OtpFromApex!=this.EmailOtp)
         {
             this.showError=true;
 
