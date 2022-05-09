@@ -39,6 +39,8 @@ getOtp({p:this.Phone,emailId:this.email}).then(response =>{
     {
         
         this.OtprecievedFromChild=event.detail;
+        EmailOtpFromChild(event)
+        this.EmailOtp=event.detail;
         if(this.OtprecievedFromChild==this.OtpFromApex||this.EmailOtp==this.OtpFromApex)
         {
             this.afterClick=false;
@@ -50,14 +52,8 @@ getOtp({p:this.Phone,emailId:this.email}).then(response =>{
 
         }
     }
-    EmailOtpFromChild(event)
-
-    {
-        this.EmailOtp=event.detail;
-        
-    }
-
-    
-
-    
 }
+
+   
+
+    

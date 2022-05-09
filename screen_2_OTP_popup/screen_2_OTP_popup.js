@@ -49,14 +49,16 @@ export default class Screen_2_OTP_popup extends LightningElement {
         }
         );
     this.dispatchEvent(sendToParent);
+    alert('sent mobile otp from child to parent')
 
     const sendToParentEmail = new CustomEvent("getEmailvalue",
     {
         detail:this.OtpRecievedOnEmail
     }
     );
-this.dispatchEvent(sendToParent);
-    
+this.dispatchEvent(sendToParentEmail);
+alert('sent email otp from child to parent')
+
 
      
     }
