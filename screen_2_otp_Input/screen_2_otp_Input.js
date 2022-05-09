@@ -21,7 +21,7 @@ export default class Screen_2_otp_Input extends LightningElement
     {
 
 this.afterClick=true;
-getOtp({p:this.Phone,emailId:this.emailId}).then(response =>{
+getOtp({p:this.Phone,emailId:this.email}).then(response =>{
     this.OtpFromApex = response;
     console.log(OtpFromApex);
 }).catch(error =>{
@@ -38,8 +38,6 @@ getOtp({p:this.Phone,emailId:this.emailId}).then(response =>{
     {
         
         this.OtprecievedFromChild=event.detail;
-        alert(OtprecievedFromChild);
-        alert(OtpFromApex);
         if(this.OtprecievedFromChild==this.OtpFromApex)
         {
             this.afterClick=false;
